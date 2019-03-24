@@ -1,2 +1,2 @@
-# Pycrypt - V 1: Engigma
+# Pycrypt - V 1: Enigma
 Cross Platform Encryption Application
