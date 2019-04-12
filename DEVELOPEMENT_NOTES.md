@@ -17,10 +17,17 @@ https://pyperclip.readthedocs.io/en/latest/introduction.html
 
 
 TODO:
-Add File Handling functionality to backend
+Add File Handling functionality to backend.
+
 Add File Handling functionality to frontend.
-Add File Select Menu
-Add About Window
-Beautification of widgets
-Add Canvas Stuff
-Add Logo
+
+Add File Select Menu.
+Add About Window.
+
+Beautification of widgets.
+
+Add Canvas Stuff.
+
+Add Logo.
+
+
