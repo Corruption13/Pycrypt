@@ -1,15 +1,16 @@
 import backend
 import codecs
-
-file = codecs.open("test.png", 'r', encoding="ISO-8859-1")
-file2 = codecs.open("test2.png", 'w', encoding="ISO-8859-1")
-file3 = codecs.open("test3.png", 'w', encoding="ISO-8859-1")
-file4 = codecs.open("test4.png", 'w', encoding="ISO-8859-1")
+'''
+file = codecs.open("Files/test.mp3", 'r', encoding="ISO-8859-1")
+file2 = codecs.open("Files/test-encrypt.mp3", 'w', encoding="ISO-8859-1")
+file3 = codecs.open("Files/test-decrypted.mp3", 'w', encoding="ISO-8859-1")
+file4 = codecs.open("Files/test-untouched.mp3", 'w', encoding="ISO-8859-1")
+file5 = codecs.open("Files/test-untouched.mp3", "r", encoding="ISO-8859-1")
 text = file.read()
 obj = backend.ED(string=text, key="saeaahfaihnuyiw23!@#%$626523457:>:KPqxumc8qce.rt93umkurg28724n94yt4877")
 file4.write(text)
 
-file5 = codecs.open("test4.png", "r", encoding="ISO-8859-1")
+
 text2 = file5.read()
 
 obj.ed_mastermethod("encrypt")
@@ -25,5 +26,15 @@ if text == text2:
     print("YES!")
 else:
     print("NO!")
+'''
 
+'''
+text = "Johny Johny! Yes Papa? Eating Sugar? No Papa! Telling Lies? No Papa! Open Your Mouth! Ha Ha Ha!"
+obj = backend.ED(string=text, key="saea8qce.rt93umkurg28724n94yt4877")
+
+print("Encryption!")
+obj.ed_mastermethod(mode="encrypt")
+print("\nDecryption!")
+obj.ed_mastermethod(mode="decrypt")
+'''
 

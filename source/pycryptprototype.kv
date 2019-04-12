@@ -1,0 +1,160 @@
+
+<Touch>:
+    btn: btn
+
+    Button:
+        id: btn
+        text:"My Btn"
+
+<Button_Normal_Vert>:
+
+    size_hint_y: 0.1
+    size_hint_x: 0.03
+
+<Label>:
+    size_hint_y: 0.2
+
+
+<front>:
+
+    encr: enc
+    decr: dec
+    key: key
+    key_len: key_len
+
+    FloatLayout:
+        size: root.width, root.height
+        cols:1
+        text_size: self.size
+        halign: 'center'
+        valign: 'middle'
+        id: heading
+        #size_hint: 0.1, 0.05
+
+        cols: 2
+        Label:
+            text: "<Pycrypt Logo Here>"
+            pos_hint: {"x": 0.1, "top": 1}
+            size_hint: 0.2, 0.1
+            color: 0,1,0,1
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+        Button_Normal_Vert:
+            id: copy1
+            text:"C\no\np\ny\n"
+            pos_hint: {"x": 0.01, 'top':0.75}
+            border: 10, 10, 10, 10
+            on_press: root.copy(enc.text)
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+        Button_Normal_Vert:
+            id: paste1
+            text:"\nP\na\ns\nt\ne\n"
+            pos_hint: {"x": 0.01, 'top':0.55}
+            border: 10, 10, 10, 10
+            on_press: root.enc_paste()
+            texture_size: self.size
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+        TextInput:
+            hint_text: "Enter Normal Text Here"
+            id: enc
+            pos_hint: {"x": 0.05, 'top': 0.85}
+            size_hint_y: 0.6
+            size_hint_x: 0.4
+
+        TextInput:
+            hint_text: "Enter Cipher Text Here"
+            id: dec
+            pos_hint: {"x": 0.55, 'top': 0.85}
+            size_hint_y: 0.6
+            size_hint_x: 0.4
+
+        Button_Normal_Vert:
+            id: copy2
+            text:"C\no\np\ny\n"
+            pos_hint: {"x": 0.96, 'top':0.75}
+            border: 10, 10, 10, 10
+            on_press: root.copy(dec.text)
+        Button_Normal_Vert:
+            id: paste2
+            text:"\nP\na\ns\nt\ne\n"
+            pos_hint: {"x": 0.96, 'top':0.55}
+            border: 10, 10, 10, 10
+            on_press: root.dec_paste()
+
+        Button:
+            text:"Encrypt"
+            pos_hint: {"x": 0.052, 'top': 0.24}
+            size_hint_y: 0.05
+            size_hint_x: 0.20
+            border: 10, 10, 10, 10
+            color: 0,1,1,1
+            on_press: root.enc()
+        Button:
+            text:"Decrypt"
+            pos_hint: {"x": 0.55, 'top': 0.24}
+            size_hint_y: 0.05
+            size_hint_x: 0.20
+            border: 10, 10, 10, 10
+            color: 1,0,1,1
+            on_press: root.dec()
+        Button:
+            text:"Encrypt as File"
+            pos_hint: {"x": 0.252, 'top': 0.24}
+            size_hint_y: 0.05
+            size_hint_x: 0.20
+            border: 10, 10, 10, 10
+            color: 0,1,1,1
+            on_press: root.enc()
+        Button:
+
+            text:"Decrypt as file"
+            pos_hint: {"x": 0.75, 'top': 0.24}
+            size_hint_y: 0.05
+            size_hint_x: 0.20
+            border: 10, 10, 10, 10
+            color: 1,0,1,1
+            on_press: root.dec()
+
+
+        Label:
+            text: "Key: "
+            color: 0,1,0,1
+            size_hint: 0.1, 0.1
+            pos_hint: {"x": 0.075, 'y': 0.1025}
+        TextInput:
+            id: key
+            hint_text: "Enter Secret Key"
+
+            pos_hint: {"x": 0.2, 'y': 0.13}
+            size_hint_y: 0.05
+            size_hint_x: 0.20
+        Button:
+            text: "Generate Key"
+            on_press: root.key_generator()
+            size_hint: 0.20, 0.05
+            pos_hint: {"x": 0.10, 'y': 0.075}
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+        TextInput:
+            hint_text: "Length"
+            id: key_len
+            pos_hint: {"x": 0.32, 'y': 0.073}
+            size_hint_y: 0.05
+            size_hint_x: 0.08
+        Label:
+            text: "File Properties"
+            pos_hint: {"x": 0.9, 'y': 0.875}
+        Button:
+            text: "Select Input File Location"
+
+            pos_hint: {"x": 0.58, 'y': 0.875}
+            size_hint: 0.30, 0.05
+

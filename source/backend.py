@@ -1,20 +1,23 @@
-# Pycrypt Source Code - Backend
-import time
+# Pycrypt Source Code
+
 import utilityfunc
 
+prime_numbers = utilityfunc.primegen(10001)
+prime_size = len(prime_numbers)
 class ED:
 
-    def __init__(self, string, key):
-        self.string = string
-        self.key = key
+    def __init__(self):
+        self.string = ""
+        self.key = "_h$#W%IuH36G_+9012"
         self.key_c = "0"
         self.next_key_c = "0"
         self.string_c = '0'
         self.encrypt_string = ""
         self.decrypt_string = ""
 
+
     def testPrint(self, inp="NULL", out="NULL", key="NULL"):
-        print("Input =", inp, "\nOutput =", out, "\nHash Key =", key)
+        print("\nInput =", inp, "\nOutput =", out, "\nHash Key =", key)
 
     def dynamic_shift(self):
         if ord(self.next_key_c) % 2 == 1:
@@ -30,13 +33,13 @@ class ED:
 
     def caesar_control(self, input_string="Testing", mode="encrypt"):
 
-        #if mode == "encrypt":
+        # if mode == "encrypt":
             # print("\n\nEncrypting message")
-        #elif mode == "decrypt":
-            #print("\n\nDecrypting message")
-        #else:
-            #print("Incorrect mode")
-            #exit()
+        # elif mode == "decrypt":
+            # print("\n\nDecrypting message")
+        # else:
+            # print("Incorrect mode")
+            # exit()
         string_character_index = 0
         key_character_index = 0
         encrypt_string = ""
@@ -44,7 +47,7 @@ class ED:
         while string_character_index < len(input_string):  # Oscillating loop
 
             while key_character_index < len(self.key) and string_character_index < len(input_string):
-                # print("Key= ", key_character_index, "String= ", string_character_index)
+                # print("Key= ", key_character_index, "String= ", string_character_index, "/", len(input_string))
                 # print("Output =", decrypt_string)
                 self.key_c = self.key[key_character_index]
                 self.string_c = input_string[string_character_index]
@@ -67,7 +70,7 @@ class ED:
             # print("Screech")
 
             while key_character_index >= 0 and string_character_index < len(input_string):
-                # print("Key= ", key_character_index, "String= ", string_character_index)
+                # print("Key= ", key_character_index, "String= ", string_character_index, "/", len(input_string))
                 # print("Output =", self.encrypt_string)
                 self.key_c = self.key[key_character_index]
                 self.string_c = input_string[string_character_index]
@@ -91,30 +94,33 @@ class ED:
         elif mode == "decrypt":
             self.decrypt_string = decrypt_string
 
-    def shuffle(self, string, mode = "encrypt"):
+    def shuffle(self, string, mode="encrypt"):
 
         input_string = list(string)
-        prime_numbers = utilityfunc.primegen(1630)
+        #prime_numbers = utilityfunc.primegen(1630)
+
         if mode=="encrypt" :
-            #print("Shuffling", string[:20])
+            # print("Shuffling", string[:20])
             string_character_index = 0
             key_character_index = 0
-            while string_character_index < len(input_string):  # Oscillating loop
+            while string_character_index < len(string):  # Oscillating loop
 
                 # print("Key= ", key_character_index, "String= ", string_character_index)
                 # print("Output =", decrypt_string)
                 if key_character_index == len(self.key):
                     key_character_index = 0
                 self.key_c = self.key[key_character_index]
-                #print(string_character_index, prime_numbers[ord(self.key_c)], len(input_string), (string_character_index + prime_numbers[ord(self.key_c)]) % len(input_string))
+
+
                 temp = input_string[string_character_index]
-                input_string[string_character_index] = input_string[(string_character_index + prime_numbers[ord(self.key_c)]) % len(input_string)]
-                input_string[(string_character_index + prime_numbers[ord(self.key_c)]) % len(input_string)] = temp
-                #self.next_key_c = self.key[key_character_index + 1]
+                input_string[string_character_index] = input_string[
+                    (string_character_index + prime_numbers[ord(self.key_c) % prime_size]) % len(string)]
+                input_string[(string_character_index + prime_numbers[ord(self.key_c) % prime_size]) % len(string)] = temp
+                # self.next_key_c = self.key[key_character_index + 1]
 
                 key_character_index += 1
                 string_character_index += 1
-            #print("KEEEEEEY:", key_character_index-1, '/', len(self.key) - 1)
+            # print("KEEEEEEY:", key_character_index-1, '/', len(self.key) - 1)
             self.encrypt_string = ''.join(input_string)
 
 
@@ -136,8 +142,8 @@ class ED:
                # print(string_character_index, prime_numbers[ord(self.key_c)], len(input_string), (string_character_index + prime_numbers[ord(self.key_c)]) % len(input_string))
                 temp = input_string[string_character_index]
                 input_string[string_character_index] = input_string[
-                    (string_character_index + prime_numbers[ord(self.key_c)]) % len(input_string)]
-                input_string[(string_character_index + prime_numbers[ord(self.key_c)]) % len(input_string)] = temp
+                    (string_character_index + prime_numbers[ord(self.key_c) % prime_size]) % len(string)]
+                input_string[(string_character_index + prime_numbers[ord(self.key_c) % prime_size]) % len(string)] = temp
 
                 self.next_key_c = self.key[key_character_index - 1]
 
@@ -145,28 +151,41 @@ class ED:
                 string_character_index -= 1
             self.decrypt_string = ''.join(input_string)
 
-    def ed_mastermethod(self, mode):
+    def ed_mastermethod(self, input, key, mode):
+        self.key = key
         if mode == "encrypt":
-            self.caesar_control(self.string, "encrypt")
+            self.shuffle(input, mode="encrypt")
+
+            self.caesar_control(self.encrypt_string, "encrypt")
             i = 0
-            while i < 1:
+            while i < 3:
                 self.caesar_control(self.encrypt_string, "encrypt")
                 i += 1
-                print("Cycle No:", i)
+                # print("Cycle No:", i, "encrypted string =", self.encrypt_string)
 
-            #self.shuffle(self.encrypt_string, mode="encrypt")
 
-            self.testPrint(self.string, self.encrypt_string, self.key)
+
+            self.testPrint(input, self.encrypt_string, self.key)
         if mode == "decrypt":
             i = 0
-            #self.shuffle(self.encrypt_string, mode="decrypt")
 
-            self.caesar_control(self.encrypt_string, "decrypt")
-            while i < 1:
+
+            self.caesar_control(input, "decrypt")
+            while i < 3:
                 i += 1
                 self.caesar_control(self.decrypt_string, "decrypt")
 
-                print("Cycle No:", i)
+                # print("Cycle No:", i, "decrypted string=", self.decrypt_string)
 
+            self.shuffle(self.decrypt_string, mode="decrypt")
             self.testPrint(self.encrypt_string, self.decrypt_string, self.key)
 
+
+if __name__ == '__main__':
+    text = "Mary had a little Lamb, Little Lamb, little Lamb!42#@%$@"
+    obj = ED()
+
+    print("Encryption!")
+    obj.ed_mastermethod(input=text, key="Happy",  mode="encrypt")
+    print("\nDecryption!")
+    obj.ed_mastermethod(obj.encrypt_string, key="Happy", mode="decrypt")
