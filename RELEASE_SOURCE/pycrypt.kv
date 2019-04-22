@@ -1,0 +1,742 @@
+ScreenManager:
+    orientation: "landscape"
+    MainScreen:
+        name: 'MainScreen'
+
+    Text:
+        name: 'Text'
+    File:
+        name: 'File'
+    FChoose:
+        name: 'FChoose'
+    About:
+        name: 'About'
+
+<Label_Container>:
+    size_hint: (1, .1)
+    canvas.before:
+        Color:
+            rgb: 0,0,0 # your color here
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<Button_Normal_Vert>:
+
+    size_hint_y: 0.2
+    size_hint_x: 0.03
+
+<Label>:
+
+
+    halign: 'center'
+    valign: 'middle'
+
+
+
+<Text>:
+    orientation: "landscape"
+    encr: enc
+    decr: dec
+    key: key
+    key_len: key_len
+    output_name: output_name
+    output_button: output_button
+    FloatLayout:
+        size: root.width, root.height
+        cols:1
+        text_size: self.size
+        halign: 'center'
+        valign: 'middle'
+
+        #size_hint: 0.1, 0.05
+
+        cols: 2
+        Button:
+            id: returntomenu
+            pos_hint: {"x": 0.015, "y": 0.825}
+            size_hint: 0.2, 0.2
+
+            on_release:
+
+                app.changecolor(1)
+                app.root.current='MainScreen'
+                app.root.transition.direction = 'left'
+            background_color: (0, 0.0, 0.0, 0)
+        Label:
+            canvas:
+                Rectangle:
+                    source: 'logo.png'
+                    pos: self.pos
+                    size: self.size
+
+            pos_hint: {"x": 0.015, "y": 0.825}
+            size_hint: 0.2, 0.2
+        Label:
+
+            text: "TEXT INTERFACE"
+            font_size: self.width/15 + self.height/15
+            pos_hint: {"x": 0.2, "y": 0.825}
+            size_hint: 0.2, 0.2
+
+
+        Label:
+            text: "File\nProperties"
+            halign: "left"
+            pos_hint: {"x": 0.45, 'y': 0.9}
+            color: (0.85,1,0.85,1)
+            size_hint: 0.30, 0.05
+        TextInput:
+
+            id: output_name
+            hint_text: "Output File Name"
+            pos_hint: {"x": 0.65, 'y': 0.925}
+            size_hint: 0.30, 0.05
+
+        Button:
+            text: "Select Output File Location"
+            font_size: self.width/20 + self.height/20
+
+            pos_hint: {"x": 0.65, 'y': 0.875}
+            size_hint: 0.30, 0.05
+            on_release:
+                app.currentscreen("Text")
+                app.mode = 2
+                app.root.current = "FChoose"
+            background_color: (0.75,0.532,0.3,0.6)
+
+        Button_Normal_Vert:
+            id: copy1
+            text:"C\no\np\ny\n"
+            pos_hint: {"x": 0.01, 'top':0.75}
+            border: 10, 10, 10, 10
+            font_size: self.width/20 + self.height/10
+            on_release: root.copy(enc.text)
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            background_color: (0.75,0.532,0.3,0.6)
+
+        Button_Normal_Vert:
+            id: paste1
+            text:"\nP\na\ns\nt\ne\n"
+            pos_hint: {"x": 0.01, 'top':0.55}
+            border: 10, 10, 10, 10
+            on_release: root.enc_paste()
+            font_size: self.width/20 + self.height/10
+            halign: 'center'
+            valign: 'middle'
+            background_color: (0.75,0.532,0.3,0.6)
+        TextInput:
+            hint_text: "Enter Normal Text Here"
+            id: enc
+            pos_hint: {"x": 0.05, 'top': 0.85}
+            size_hint_y: 0.6
+            size_hint_x: 0.4
+
+        Button:
+            id: resetn
+            background_color: (1,0,0,1)
+            pos_hint: {"x": 0.40, 'y': 0.250}
+            size_hint: 0.05, 0.05
+            font_size: self.width/4 + self.height/4
+            text: 'X'
+            on_press:
+                root.encr.text = ""
+            #background_color: (0.75,0.532,0.3,1)
+        TextInput:
+            hint_text: "Enter Cipher Text Here"
+            id: dec
+            pos_hint: {"x": 0.55, 'top': 0.85}
+            size_hint_y: 0.6
+            size_hint_x: 0.4
+        Button:
+            id: resetc
+            background_color: (1,0,0,1)
+            pos_hint: {"x": 0.90, 'y': 0.250}
+            size_hint: 0.05, 0.05
+            font_size: self.width/4 + self.height/4
+            text: 'X'
+            on_press:
+                root.decr.text = ""
+
+        Button_Normal_Vert:
+            id: copy2
+            text:"C\no\np\ny\n"
+            pos_hint: {"x": 0.96, 'top':0.75}
+            border: 10, 10, 10, 10
+            on_release: root.copy(dec.text)
+            background_color: (0.75,0.532,0.3,0.6)
+            font_size: self.width/20 + self.height/10
+        Button_Normal_Vert:
+            id: paste2
+            text:"\nP\na\ns\nt\ne\n"
+            pos_hint: {"x": 0.96, 'top':0.55}
+            border: 10, 10, 10, 10
+            on_release: root.dec_paste()
+            background_color: (0.75,0.532,0.3,0.6)
+            font_size: self.width/20 + self.height/10
+        Button:
+            text:"Encrypt"
+            pos_hint: {"x": 0.052, 'top': 0.24}
+            size_hint_y: 0.05
+            size_hint_x: 0.20
+            font_size: self.width/10 + self.height/10
+            border: 10, 10, 10, 10
+
+            on_release: root.enc(1)
+            background_color: (0.15,0.532,0.1,1)
+        Button:
+            text:"Decrypt"
+            font_size: self.width/10 + self.height/10
+            pos_hint: {"x": 0.55, 'top': 0.24}
+            size_hint_y: 0.05
+            size_hint_x: 0.20
+            border: 10, 10, 10, 10
+
+            on_release: root.dec(1)
+            background_color: (0.15,0.532,0.1,1)
+
+        Button:
+            text:"Encrypt as File"
+            font_size: self.width/10 + self.height/10
+            pos_hint: {"x": 0.252, 'top': 0.24}
+            size_hint_y: 0.05
+            size_hint_x: 0.20
+            border: 10, 10, 10, 10
+
+            on_release: root.enc(2)
+            background_color: (0.532,0.15,0.1,1)
+
+        Button:
+            text:"Decrypt as file"
+            font_size: self.width/10 + self.height/10
+            pos_hint: {"x": 0.75, 'top': 0.24}
+            size_hint_y: 0.05
+            size_hint_x: 0.20
+            border: 10, 10, 10, 10
+
+            on_release: root.dec(2)
+            background_color: (0.532,0.15,0.1,1)
+
+        Label:
+            text: "Key: "
+            font_size: self.width/8 + self.height/18
+            color: 0,1,0,1
+            size_hint: 0.1, 0.1
+            pos_hint: {"x": 0.075, 'y': 0.1025}
+        TextInput:
+            id: key
+            hint_text: "Enter Secret Key"
+            hint_text_color: (1,0,0,1)
+            multiline: False
+            pos_hint: {"x": 0.2, 'y': 0.13}
+            size_hint_y: 0.05
+            size_hint_x: 0.20
+
+        Button:
+            id: show_key
+            color: (0,0,0,0)
+            size_hint: 0.025, 0.025
+            pos_hint: {"x": 0.375, 'y': 0.134}
+            on_press:
+                root.key_show()
+
+        Label:
+            text: "^^"
+            canvas:
+                Rectangle:
+                    source: "more.png"
+                    size: self.size
+                    pos: self.pos
+            color: (1,1,1,0)
+            size_hint: 0.025, 0.025
+            pos_hint: {"x": 0.375, 'y': 0.134}
+
+        Button:
+            text: "Generate Key"
+            font_size: self.width/12 + self.height/12
+            size_hint: 0.20, 0.05
+            pos_hint: {"x": 0.10, 'y': 0.075}
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            on_release: root.key_generator()
+            background_color: (0.75,0.532,0.3,0.6)
+            
+        TextInput:
+            hint_text: "Length"
+            multiline: False
+            id: key_len
+            pos_hint: {"x": 0.32, 'y': 0.073}
+            size_hint_y: 0.05
+            size_hint_x: 0.08
+        Button:
+            text:"Open Output Folder"
+            font_size: self.width/25 + self.height/25
+            pos_hint: {"x": 0.552, 'y': 0.05}
+            size_hint_y: 0.05
+            size_hint_x: 0.40
+            border: 10, 10, 10, 10
+            background_color: (0.75,0.532,0.3,0.6)
+            on_release:
+                app.openfile(app.output_path)
+        Button:
+            id: out_name
+            font_size: self.width/15 + self.height/15
+            size: self.texture_size
+            pos_hint: {"x": 0.552, 'y': 0.11}
+            size_hint_y: 0.075
+            size_hint_x: 0.4
+            border: 10, 10, 10, 10
+            background_color: (0,0,0, 0.42)
+            on_release:
+                app.openfile(app.out_file)
+        Label:
+            id: output_button
+            name: output_button
+            font_size: self.width/15 + self.height/15
+            pos_hint: {"x": 0.552, 'y': 0.11}
+            size_hint_y: 0.075
+            size_hint_x: 0.4
+
+<File>:
+
+    #encr: enc
+    #decr: dec
+    key: key
+    key_len: key_len
+    key_name: key_name
+    button1: button1
+    button2: button2
+    out_name: out_name
+    out_text: out_text
+
+    FloatLayout:
+        size: root.width, root.height
+        cols:1
+        text_size: self.size
+        halign: 'center'
+        valign: 'middle'
+
+        #size_hint: 0.1, 0.05
+
+        cols: 2
+
+        Button:
+            pos_hint: {"x": 0.015, "y": 0.725}
+            size_hint: 0.3, 0.3
+            color: 0,0,0,0
+            on_release:
+                app.changecolor(1)
+                app.root.current='MainScreen'
+                app.root.transition.direction = 'right'
+            background_color: (0, 0.0, 0.0, 0)
+        Label:
+            canvas:
+                Rectangle:
+                    source: 'logo.png'
+                    pos: self.pos
+                    size: self.size
+
+            pos_hint: {"x": 0.015, "y": 0.75}
+            size_hint: 0.3, 0.3
+        Label:
+
+            text: "FILE\nINTERFACE"
+            font_size: self.width/15 + self.height/15
+            pos_hint: {"x": 0.23, "y": 0.76}
+            size_hint: 0.25, 0.25
+
+        Button:
+            text: "Select Output File Location"
+            pos_hint: {"x": 0.58, 'y': 0.875}
+            size_hint: 0.30, 0.05
+            background_color: (0.3866, 0.142, 0.2169, 1)
+            on_press:
+                app.mode = 2
+                app.currentscreen("File")
+                app.root.current = "FChoose"
+
+        TextInput:
+            id: out_name
+            hint_text: 'Output File Name'
+            pos_hint: {"x": 0.58, 'y': 0.925}
+            size_hint: 0.30, 0.05
+
+        Button:
+            text:"Choose File"
+            font_size: self.width/25 + self.height/25
+            pos_hint: {"x": 0.052, 'top': 0.55}
+            size_hint_y: 0.05
+            size_hint_x: 0.40
+            border: 10, 10, 10, 10
+            background_color: (1,1,0,1)
+            on_release:
+                app.currentscreen("File")
+                app.root.current = "FChoose"
+                app.mode = 1
+
+        Button:
+            id: input_name
+            pos_hint: {"x": 0.052, 'top': 0.75}
+            size_hint_y: 0.2
+            size_hint_x: 0.40
+            border: 10, 10, 10, 10
+
+            background_color: (0,0,0, 0.42)
+            on_release:
+                app.openfile(app.in_file)
+                #self.text = app.returnfilename(app.in_file)
+        Label:
+            text: "Input:"
+            font_size: self.width/8 + self.height/8
+            size_hint: (0.1, 0.1)
+            pos_hint: {"x": 0.045, 'top': 0.825}
+        Label:
+            id: button1
+            name: button1
+            font_size: self.width/15 + self.height/15
+            #color: (0.5, 0.5, 0.5, 0.5)
+            pos_hint: {"x": 0.052, 'top': 0.75}
+            size_hint_y: 0.2
+            size_hint_x: 0.40
+        Button:
+            text:"Open Output Folder"
+            font_size: self.width/25 + self.height/25
+            pos_hint: {"x": 0.552, 'top': 0.55}
+            size_hint_y: 0.05
+            size_hint_x: 0.40
+            border: 10, 10, 10, 10
+            color: 0,1,1,1
+            background_color: (1,1,0,1)
+            on_release:
+                app.openfile(app.output_path)
+        Button:
+            id: output_name
+            font_size: self.width/15 + self.height/15
+            size: self.texture_size
+            pos_hint: {"x": 0.552, 'top': 0.75}
+            size_hint_y: 0.2
+            size_hint_x: 0.40
+            border: 10, 10, 10, 10
+            background_color: (0,0,0, 0.42)
+            on_release:
+                app.openfile(app.out_file)
+        Label:
+            id: button2
+            font_size: self.width/15 + self.height/15
+            name: button2
+            pos_hint: {"x": 0.552, 'top': 0.75}
+            size_hint_y: 0.2
+            size_hint_x: 0.40
+        Label:
+            text: "Output:"
+            font_size: self.width/8 + self.height/8
+            size_hint: (0.1, 0.1)
+            pos_hint: {"x": 0.545, 'top': 0.825}
+
+        Button:
+            text:"Encrypt as File"
+            pos_hint: {"x": 0.052, 'y': 0.30}
+            size_hint_y: 0.15
+            size_hint_x: 0.40
+            border: 10, 10, 10, 10
+            color: 1,1,1,1
+            background_color: (0, 1, 0, 0.35)
+            on_release: root.enc(2)
+            font_size: self.width/15 + self.height/15
+
+        Button:
+            text:"Decrypt as File"
+            pos_hint: {"x": 0.052, 'y': 0.05}
+            size_hint_y: 0.15
+            size_hint_x: 0.40
+            border: 10, 10, 10, 10
+            color: 1,1,1,1
+            background_color: (1,0,0,0.35)
+            on_release: root.dec(2)
+            font_size: self.width/15 + self.height/15
+        Label:
+            text: "Output Text:"
+            font_size: self.width/8 + self.height/8
+            size_hint: (0.1, 0.1)
+            pos_hint: {"x": 0.565, 'y': 0.41}
+
+        TextInput:
+            hint_text: "Output Text Sample"
+            readonly: True
+            id: out_text
+            pos_hint: {"x": 0.55, 'y': 0.235}
+            size_hint_y: 0.2
+            size_hint_x: 0.4
+
+        Label:
+            text: "Key Properties "
+            font_size: self.width/7 + self.height/7
+            color: 0,1,0,1
+            size_hint: 0.1, 0.1
+            pos_hint: {"x": 0.6, 'y': 0.1525}
+
+        Button:
+            text: "Select .PKEY File Instead: "
+            font_size: self.width/15 + self.height/30
+            size_hint: 0.176, 0.05
+            pos_hint: {"x": 0.275, 'y': 0.2225}
+            background_color: (0,0,1,0.35)
+            on_press:
+                app.currentscreen("File")
+                app.mode = 3
+                app.root.current = "FChoose"
+        TextInput:
+            id: key
+            hint_text: "Enter Secret Key"
+            multiline: False
+            pos_hint: {"x": 0.055, 'y': 0.225}
+            size_hint_y: 0.05
+            size_hint_x: 0.20
+        Button:
+            id: show_key
+            color: (0,0,0,0)
+            size_hint: 0.025, 0.025
+            pos_hint: {"x": 0.23, 'y': 0.2255}
+
+            on_press:
+                root.key_show()
+        Label:
+            canvas:
+                Rectangle:
+                    source: "more.png"
+                    size: self.size
+                    pos: self.pos
+            color: (1,1,1,0)
+            size_hint: 0.025, 0.025
+            pos_hint: {"x": 0.23, 'y': 0.2255}
+
+
+        Button:
+            text: "Generate Key"
+            on_release: root.key_generator()
+            size_hint: 0.20, 0.05
+            pos_hint: {"x": 0.55, 'y': 0.06}
+            background_color: (0.3866, 0.142, 0.2169, 1)
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+        TextInput:
+            id: key_name
+            hint_text: "Key Name"
+            multiline: False
+            font_size: self.width/15 + self.height/15
+            pos_hint: {"x": 0.775, 'y': 0.12}
+            size_hint: 0.15, 0.04
+
+        TextInput:
+            id: key_len
+            hint_text: "Key Length"
+            multiline: False
+            font_size: self.width/15 + self.height/15
+            pos_hint: {"x": 0.775, 'y': 0.065}
+            size_hint: 0.15, 0.04
+
+
+        Button:
+            text: "Generate Key File"
+            size_hint: 0.20, 0.05
+            pos_hint: {"x": 0.55, 'y': 0.111}
+            background_color: (0.3866, 0.142, 0.2169, 1)
+            on_press:
+                root.key_generator(2)
+
+        Label:
+            text: "File Properties"
+            pos_hint: {"x": 0.9, 'y': 0.875}
+
+
+
+
+
+
+
+
+
+<About>:
+    FloatLayout:
+
+        Label:
+            canvas:
+                Rectangle:
+                    source: 'logo.png'
+                    pos: self.pos
+                    size: self.size
+
+            pos_hint: {"x": 0.125, "y": 0.25}
+            size_hint: 0.75, 0.75
+        Button:
+
+            pos_hint: {"x": 0.125, "y": 0.25}
+            size_hint: 0.75, 0.75
+            background_color: 0,0,0,0
+            on_press:
+                app.root.transition.direction = 'down'
+                app.root.current = "MainScreen"
+        Label:
+            font_size: self.width/50 + self.height/50
+            pos_hint:{'x': 0, 'y': -0.25}
+            text: "Created by:\n S Sandeep Pillai\n George MC\n Rohit R Kumar \n Aiswarya Jayachandran \n Pranav Shridhar"
+            text_color: 1,1,1,1
+            #text_align = "left"
+            #text_size = self.size
+
+<MainScreen>:
+
+    FloatLayout:
+        size: root.width, root.height
+        cols:1
+        text_size: self.size
+        halign: 'center'
+        valign: 'middle'
+
+        Label:
+            canvas:
+                Rectangle:
+                    source: 'logo.png'
+                    pos: self.pos
+                    size: self.size
+
+            pos_hint: {"x": 0.25, "y": 0.5}
+            size_hint: 0.5, 0.5
+        Button:
+            pos_hint: {"x": 0.25, "y": 0.5}
+            size_hint: 0.5, 0.5
+            background_color: 0,0,0,0
+            on_press:
+                app.root.transition.direction = 'down'
+                app.root.current = "About"
+
+
+        Button:
+            pos_hint: {'x': 0.05, 'y': 0.3}
+            size_hint_x: 0.4
+            size_hint_y: 0.2
+            text:"Text Encryption"
+            font_size: self.width/20 + self.height/20
+            background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+            canvas.before:
+                Color:
+                    rgba: (0.142, 0.1069, 0.366, 1) if self.state=='normal' else (0,.7,.7,1)  # visual feedback of press
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [50,]
+            #background_color: (0.142, 0.1069, 0.366, 1)
+            on_release:
+                app.root.transition.direction = 'right'
+                app.root.current= 'Text'
+                app.changecolor(0)
+
+        Button:
+            pos_hint: {'x': 0.55, 'y': 0.3}
+            size_hint_x: 0.4
+            size_hint_y: 0.2
+            text:"File Encryption"
+            font_size: self.width/20 + self.height/20
+            #background_color: (0.3866, 0.142, 0.2169, 1)
+            background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+            canvas.before:
+                Color:
+                    rgba: (0.3866, 0.142, 0.2169, 1) if self.state=='normal' else (0,.7,.7,1)  # visual feedback of press
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [50,]
+            on_release:
+                app.root.transition.direction = 'left'
+                app.root.current= 'File'
+                app.changecolor(2)
+        Button:
+            pos_hint: {'x': 0.65, 'y': 0.05}
+            size_hint_x: 0.15
+            size_hint_y: 0.1
+            text:"Donate"
+            font_size: self.width/15 + self.height/15
+            background_color: (0.3866, 0.142, 0.2169, 1)
+
+            on_release:
+                root.about()
+        Button:
+            pos_hint: {'x': 0.8, 'y': 0.05}
+            size_hint_x: 0.15
+            size_hint_y: 0.1
+            text:"About"
+            font_size: self.width/15 + self.height/15
+            background_color: (0.3866, 0.142, 0.2169, 1)
+
+            on_release:
+                root.about()
+
+
+<FChoose>:
+
+    BoxLayout:
+        FileChooserIconView:
+
+            id: filechooser
+            path: root.scriptpath()
+            on_selection:
+                root.getFile(file.text, app.mode)
+                app.root.current= app.current
+
+            Label_Container:
+                size_hint: (1, 0.12)
+
+            Button:
+                font_size: self.width/15 + self.height/15
+                size_hint: (0.2, 0.1)
+                background_color: (0.01, 0.5, 0.3, 1)
+                pos_hint:{'x':0.55, 'y':0.005}
+                text: "Select This Directory"
+                on_release:
+                    root.getFolder(filechooser.path, 2)
+                    app.root.current= app.current
+
+            #Button:
+                #font_size: self.width/15 + self.height/15
+                #size_hint: (0.2, 0.1)
+                #background_color: (0.01, 0.5, 0.3, 1)
+                #pos_hint:{'x':0.59, 'y':0.005}
+                #text: "Change Drive"
+                #on_release:
+                    #app.root.input_path: "D:\\"
+                    #app.root.current= app.current
+
+            Button:
+                font_size: self.width/15 + self.height/15
+                size_hint: (0.2, 0.1)
+                background_color: (0.51, 0.1, 0.1, 1)
+                pos_hint:{'x':0.78, 'y':0.005}
+                text: "Cancel"
+
+                on_release:
+                    app.root.current= app.current
+            TextInput:
+                font_size: self.width/15 + self.height/15
+                id: file
+                pos_hint:{'x':0, 'y':0.01}
+                hint_text: "Enter File File Instead"
+                hint_text_color: (0.3,0.5,0.1,1)
+                size_hint: (0.3, 0.075)
+                pos_hint: {'x': 0.005, 'y': 0.015}
+            Button:
+                font_size: self.width/7 + self.height/7
+                size_hint: (0.07, 0.075)
+                background_color: (0.5, 0.5, 0.1, 1)
+                pos_hint:{'x':0.31, 'y': 0.015}
+                text: "Select"
+                on_release:
+                    root.getFile(file.text, app.mode)
+                    app.root.current= app.current
+
+
+
