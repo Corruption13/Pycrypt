@@ -330,7 +330,7 @@ class File(Screen):
             obj = backend.FileManager()
             file_name = "Pkey["+ str(len(self.key.text)) + "].txt"
             obj.write(self.key.text, file_name)
-            self.openfile(file_name)
+            MAIN.openfile(file_name)
             time.sleep(2)
             os.remove(file_name)
 
@@ -377,10 +377,12 @@ class FChoose(Screen):
         return os.getcwd()
 
     def getFile(self, _file, mode=1):
+        print(_file)
         path = _file
         path = "".join(path)
         print("File:", path)
         if mode == 1:
+            print('!')
             MAIN.in_file = path
         elif mode == 2:
             MAIN.output_path = MAIN.returnfoldername(path)

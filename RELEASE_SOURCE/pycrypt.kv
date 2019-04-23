@@ -227,7 +227,7 @@ ScreenManager:
             pos_hint: {"x": 0.075, 'y': 0.1025}
         TextInput:
             id: key
-            hint_text: "Enter Secret Key"
+            hint_text: "Enter Secret Key*"
             hint_text_color: (1,0,0,1)
             multiline: False
             pos_hint: {"x": 0.2, 'y': 0.13}
@@ -373,9 +373,10 @@ ScreenManager:
             border: 10, 10, 10, 10
             background_color: (1,1,0,1)
             on_release:
+                app.mode = 1
                 app.currentscreen("File")
                 app.root.current = "FChoose"
-                app.mode = 1
+
 
         Button:
             id: input_name
@@ -490,7 +491,8 @@ ScreenManager:
                 app.root.current = "FChoose"
         TextInput:
             id: key
-            hint_text: "Enter Secret Key"
+            hint_text: "Enter Secret Key*"
+            hint_text_color: (0.7, 0, 0, 1)
             multiline: False
             pos_hint: {"x": 0.055, 'y': 0.225}
             size_hint_y: 0.05
@@ -685,7 +687,7 @@ ScreenManager:
             id: filechooser
             path: root.scriptpath()
             on_selection:
-                root.getFile(file.text, app.mode)
+                root.getFile(filechooser.selection, app.mode)
                 app.root.current= app.current
 
             Label_Container:
@@ -701,15 +703,15 @@ ScreenManager:
                     root.getFolder(filechooser.path, 2)
                     app.root.current= app.current
 
-            #Button:
-                #font_size: self.width/15 + self.height/15
-                #size_hint: (0.2, 0.1)
-                #background_color: (0.01, 0.5, 0.3, 1)
-                #pos_hint:{'x':0.59, 'y':0.005}
-                #text: "Change Drive"
-                #on_release:
-                    #app.root.input_path: "D:\\"
-                    #app.root.current= app.current
+            Button:
+                font_size: self.width/15 + self.height/15
+                size_hint: (0.15, 0.1)
+                background_color: (0.01, 0.1, 0.5, 1)
+                pos_hint:{'x':0.4, 'y':0.005}
+                text: "Refresh"
+                on_release:
+		            filechooser._update_files()
+
 
             Button:
                 font_size: self.width/15 + self.height/15
