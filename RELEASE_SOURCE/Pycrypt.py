@@ -177,7 +177,10 @@ class Text(Screen):
         if len(self.key.text) > 2:
             obj.ed_mastermethod(input=inputs, key=self.key.text, mode="encrypt")
             if mode == 1:
-                self.decr.text = obj.encrypt_string
+                try:
+                    self.decr.text = obj.encrypt_string.decode('utf-8')
+                except:
+                    self.decr.text = obj.encrypt_string.decode('Latin-1')
             elif mode == 2:
                 if self.output_name.text == "":
                     MAIN.out_file  = "Pycr_N.txt"
@@ -204,7 +207,10 @@ class Text(Screen):
         if len(self.key.text) > 2:
             obj.ed_mastermethod(input=inputs, key=self.key.text, mode="decrypt")
             if mode == 1:
-                self.encr.text = obj.decrypt_string
+                try:
+                    self.encr.text = obj.decrypt_string.decode('utf-8')
+                except:
+                    self.encr.text = obj.decrypt_string.decode('Latin-1')
             elif mode == 2:
                 if self.output_name.text == "":
                     MAIN.out_file  = "Pycr_N.txt"
