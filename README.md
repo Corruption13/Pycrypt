@@ -1,6 +1,8 @@
 # Pycrypt - V 1: Enigma
 Cross Platform Encryption Application
 
+[MIT LICENCE]: FEEL FREE TO USE, MODIFY AND DISTRIBUTE THIS APPLICATION FOR ALL PURPOSES.
+
 
 ## Installation Instructions (COMPILE METHOD):
 
