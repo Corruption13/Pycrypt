@@ -143,7 +143,7 @@ MAIN = PycryptApp()
 
 ########################################################################################################################
 # Text Based Interface #
-########################
+########################################################################################################################
 
 class Text(Screen):
 
@@ -158,16 +158,17 @@ class Text(Screen):
     output_name= ObjectProperty(None)
     output_button = ObjectProperty(None)
 
-########################################################################################################################
 
     class Button_Normal_Vert(Button):
         pass
     class Label_Container(Label):
         pass
-    def test(self):
-        print(MAIN.input_path)
-########################################################################################################################
+    
 
+        
+    #####################################################################################################
+    # Encryption Decryption Code #
+    ##############################
     def enc(self, mode=1):
         inputs = self.encr.text
         obj = backend.ED()
@@ -218,7 +219,8 @@ class Text(Screen):
             #self.decr.text = ""
         else:
             MAIN.showpop(1)
-
+            
+    ##############################################################################################
     def copy(self, text):
         pyperclip.copy(text)
     def enc_paste(self):
@@ -226,6 +228,7 @@ class Text(Screen):
     def dec_paste(self):
         self.decr.text = pyperclip.paste()
 
+        
     def key_show(self):
         if len(self.key.text) > 7:
             obj = backend.FileManager()
@@ -241,20 +244,16 @@ class Text(Screen):
             self.key.text = utilityfunc.key_gen(length)
         else:
             MAIN.showpop(2)
+            
+            
     def update(self, *args):
             self.output_button.text = MAIN.returnfilename(MAIN.out_file)
 
+        # End of class TEXT
 
 ########################################################################################################################
-
-
-
-class About(Screen):
-    pass
-class MainScreen(Screen):
-    def about(self):
-        webbrowser.open("http://github.com/Corruption13")
-    pass
+# File Based Interface #
+########################################################################################################################
 
 class File(Screen):
     #encr = ObjectProperty(None)
@@ -274,8 +273,9 @@ class File(Screen):
     input_name = ObjectProperty(None)
     out_name = ObjectProperty(TextInput)
     out_text = ObjectProperty(TextInput)
-    def test(self):
-        print(MAIN.input_path)
+    
+    ####################################################################################
+    
     def enc(self, mode=2):
         obj1 = backend.ED()
         obj2 = backend.FileManager()
@@ -323,7 +323,7 @@ class File(Screen):
                 self.out_text = obj1.decrypt_string
                 obj2.write(obj1.decrypt_string, MAIN.output_path + '\\' + file_name)
 
-
+    #############################################################################################
 
     def key_show(self):
         if len(self.key.text) > 7:
@@ -333,8 +333,6 @@ class File(Screen):
             MAIN.openfile(file_name)
             time.sleep(2)
             os.remove(file_name)
-
-
 
     def key_generator(self, mode=1):
         if self.key_len.text.isdigit() and int(self.key_len.text) >= 3:
@@ -361,7 +359,8 @@ class File(Screen):
 
         else:
             MAIN.showpop(2)
-    pass
+  
+
     def update(self, *args):
             obj = backend.FileManager()
             self.button1.text = MAIN.returnfilename(MAIN.in_file)
@@ -369,7 +368,13 @@ class File(Screen):
 
             if MAIN.key_file!="":
                 self.key.text = obj.read(MAIN.key_file)
+            
+            # End of class FILE
+                
 
+########################################################################################################################
+# File SELECTION  Interface #                                                                                          
+########################################################################################################################
 
 class FChoose(Screen):
 
@@ -402,12 +407,25 @@ class FChoose(Screen):
             MAIN.output_path = path
 
 
-        # os.startfile(input_path, 'open')
+        # End of Class FCHOOSE
 
 
+########################################################################################################################
+# OTHER SCREENS        #
+########################
+
+class About(Screen):
+    pass
+
+class MainScreen(Screen):
+    def about(self):
+        webbrowser.open("http://github.com/Corruption13")
+    pass
 
 
-
+########################################################################################################################
+# END OF CODE #                                                                                                        #
+########################################################################################################################
 
 buildKV = Builder.load_file("pycrypt.kv")
 
