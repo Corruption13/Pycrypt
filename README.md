@@ -16,7 +16,7 @@ Cross Platform Encryption Application
 # CMD/TERMINAL
 
 ## TRY:
-
+pip install kivy
 pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
 pip install kivy.deps.gstreamer
 pip install pyperclip
@@ -24,6 +24,7 @@ pip install pyperclip
 
 ## OTHERWISE TRY:
 
+python -m pip install kivy
 python -m pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
 python -m pip install kivy.deps.gstreamer
 python -m pip install pyperclip
