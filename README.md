@@ -44,7 +44,7 @@ sudo apt-get install python3-kivy
 
 pip3 install pyperclip
 OR 
-sudo apt install python3-pip^C
+sudo apt install python3-pip
 pip3 install pyperclip
 
 ```
