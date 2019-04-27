@@ -18,6 +18,8 @@ File Interface
 
 Folder Selection (Icon View)
 
+(Yes, I noticed the typo too. I fixed it but I'm too lazy to re-screenshot.)
+
 
 [MIT LICENCE]: FEEL FREE TO USE, MODIFY AND DISTRIBUTE THIS APPLICATION FOR ALL PURPOSES.
 
