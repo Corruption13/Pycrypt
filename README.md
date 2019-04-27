@@ -1,7 +1,7 @@
 # Pycrypt - V 1: Enigma
 Cross Platform Encryption Application
 
-![alt text](https://imgur.com/mw9HsS1)
+![MainMenu](https://i.imgur.com/mw9HsS1.png)
 
 [MIT LICENCE]: FEEL FREE TO USE, MODIFY AND DISTRIBUTE THIS APPLICATION FOR ALL PURPOSES.
 
