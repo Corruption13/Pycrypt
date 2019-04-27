@@ -3,6 +3,22 @@ Cross Platform Encryption Application
 
 ![MainMenu](https://i.imgur.com/mw9HsS1.png)
 
+Main Menu
+
+
+![Text Interface](https://i.imgur.com/7K8z9j0.png)
+
+Text Interface
+
+![File Interface](https://i.imgur.com/i8nTgQM.png)
+
+File Interface
+
+![Folder View](https://i.imgur.com/grpPnWi.png)
+
+Folder Selection (Icon View)
+
+
 [MIT LICENCE]: FEEL FREE TO USE, MODIFY AND DISTRIBUTE THIS APPLICATION FOR ALL PURPOSES.
 
 
