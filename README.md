@@ -5,22 +5,6 @@ Cross Platform Encryption Application
 
 Main Menu
 
-
-![Text Interface](https://i.imgur.com/7K8z9j0.png)
-
-Text Interface
-
-![File Interface](https://i.imgur.com/i8nTgQM.png)
-
-File Interface
-
-![Folder View](https://i.imgur.com/grpPnWi.png)
-
-Folder Selection (Icon View)
-
-(Yes, I noticed the typo too. I fixed it but I'm too lazy to re-screenshot.)
-
-
 [MIT LICENCE]: FEEL FREE TO USE, MODIFY AND DISTRIBUTE THIS APPLICATION FOR ALL PURPOSES.
 
 
@@ -83,8 +67,25 @@ https://stackoverflow.com/questions/34819221/why-is-python-setup-py-saying-inval
 
 cd <FOLDER WHERE YOU DOWNLOADED THE ABOVE FILE>
 python Pycrypt.py
-
 ```
+
+# Gallary
+
+![Text Interface](https://i.imgur.com/7K8z9j0.png)
+
+Text Interface
+
+![File Interface](https://i.imgur.com/i8nTgQM.png)
+
+File Interface
+
+![Folder View](https://i.imgur.com/grpPnWi.png)
+
+Folder Selection (Icon View)
+
+(Yes, I noticed the typo too. I fixed it but I'm too lazy to re-screenshot.)
+
+
 
 
 PLEASE FEEL FREE TO EDIT, MODIFY, AND FORK THIS REPOSITORY FOR PERSONAL USE. :)
