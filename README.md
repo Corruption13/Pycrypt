@@ -14,7 +14,7 @@ Cross Platform Encryption Application
 1) Download the RELEASE_SOURCE folder to your device.
 2) Make sure your system has Python 3 Installed 
 
-``` python --version```
+    ``` python --version```
 
 
 3) Install Kivy and Pyperclip
