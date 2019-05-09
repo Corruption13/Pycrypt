@@ -3,7 +3,7 @@ Cross Platform Encryption Application
 
 ![MainMenu](https://i.imgur.com/mw9HsS1.png)
 
-Main Menu
+
 
 [MIT LICENCE]: FEEL FREE TO USE, MODIFY AND DISTRIBUTE THIS APPLICATION FOR ALL PURPOSES.
 
