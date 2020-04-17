@@ -69,7 +69,7 @@ cd <FOLDER WHERE YOU DOWNLOADED THE ABOVE FILE>
 python Pycrypt.py
 ```
 
-# Gallary
+# Gallery
 
 ![Text Interface](https://i.imgur.com/7K8z9j0.png)
 
