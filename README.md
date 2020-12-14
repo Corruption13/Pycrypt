@@ -1,11 +1,15 @@
-# Deprecieated : Can no longer install the requirements through pip
-
 # Pycrypt - V 1: Enigma
 Cross Platform Encryption Application
 
+
+## ATTENTION STALKER!
+
+I made this project while I was learning Programming, therefore its filled with spaghetti code and god aweful code design.
+The only reason I haven't nuked this repository is for personal nostalgia's sake, and to see how far I have progressed years later.
+Please do not over analyse or attempt to understand my code, K thanks.
+
+
 ![MainMenu](https://i.imgur.com/mw9HsS1.png)
-
-
 
 [MIT LICENCE]: FEEL FREE TO USE, MODIFY AND DISTRIBUTE THIS APPLICATION FOR ALL PURPOSES.
 
@@ -19,57 +23,15 @@ Cross Platform Encryption Application
     ``` python --version```
 
 
-3) Install Kivy and Pyperclip
-
-## Windows
+3) Install the depencencies
 ```
-
-
-## TRY:
-pip install kivy
-pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
-pip install kivy.deps.gstreamer
-pip install pyperclip
-
-
-## OTHERWISE TRY:
-
-python -m pip install kivy
-python -m pip install docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
-python -m pip install kivy.deps.gstreamer
-python -m pip install pyperclip
+$ cd <directory>/RELEASE_SOURCE
+$ pip install -r requirements.txt
 
 ```
-
-
-## Linux - UBUNTU
-
-```
-pip3 install setuptools
-sudo add-apt-repository ppa:kivy-team/kivy
-sudo apt-get install python3-kivy
-
-pip3 install pyperclip
-OR 
-sudo apt install python3-pip
-pip3 install pyperclip
-
-```
-
-For Debian, check this link: https://kivy.org/doc/stable/installation/installation-linux.html
-
-### Common install erorrs:
-https://stackoverflow.com/questions/34819221/why-is-python-setup-py-saying-invalid-command-bdist-wheel-on-travis-ci
-
 
 4) Execute "Pycrypt.py" by doube clicking or through the terminal:
 
-```
-# CMD/TERMINAL:
-
-cd <FOLDER WHERE YOU DOWNLOADED THE ABOVE FILE>
-python Pycrypt.py
-```
 
 # Gallery
 
@@ -84,10 +46,6 @@ File Interface
 ![Folder View](https://i.imgur.com/grpPnWi.png)
 
 Folder Selection (Icon View)
-
-(Yes, I noticed the typo too. I fixed it but I'm too lazy to re-screenshot.)
-
-
 
 
 PLEASE FEEL FREE TO EDIT, MODIFY, AND FORK THIS REPOSITORY FOR PERSONAL USE. :)
