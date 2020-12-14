@@ -1,3 +1,5 @@
+# Deprecieated : Can no longer install the requirements through pip
+
 # Pycrypt - V 1: Enigma
 Cross Platform Encryption Application
 
