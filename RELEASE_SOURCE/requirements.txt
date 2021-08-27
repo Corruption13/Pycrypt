@@ -7,7 +7,7 @@ kivy-deps.angle==0.3.0
 kivy-deps.glew==0.3.0
 kivy-deps.sdl2==0.3.1
 Kivy-Garden==0.1.4
-Pygments==2.7.3
+Pygments==2.7.4
 pyperclip==1.8.1
 pypiwin32==223
 pywin32==301
