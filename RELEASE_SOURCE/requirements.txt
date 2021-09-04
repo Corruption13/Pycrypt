@@ -1,4 +1,4 @@
-﻿certifi==2020.12.5
+certifi==2020.12.5
 chardet==3.0.4
 docutils==0.16
 idna==2.10
@@ -13,3 +13,4 @@ pypiwin32==223
 pywin32==301
 requests==2.25.0
 urllib3==1.26.5
+
