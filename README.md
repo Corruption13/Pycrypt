@@ -22,20 +22,17 @@ K thanks bye.
 
 
 
-## Installation Instructions (COMPILE METHOD - Virtual Env):
+## Installation Instructions
 
-1) Download the RELEASE_SOURCE folder to your device.
-2) Make sure your system has Python 3 Installed 
+1) Clone the RELEASE_SOURCE folder to your device.
+2) Make sure your system has Python 3 Installed *facepalm*
 
-    ``` python --version```
-
+    $ python --version
 
 3) Install the depencencies
-```
-$ cd <directory>/RELEASE_SOURCE
-$ pip install -r requirements.txt
 
-```
+    $ cd ./RELEASE_SOURCE
+    $ pip install -r requirements.txt
 
 4) Execute "Pycrypt.py" by doube clicking or through the terminal:
 
