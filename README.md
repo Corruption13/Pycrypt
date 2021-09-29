@@ -39,17 +39,17 @@ K thanks bye.
 
 # Gallery
 
+### Text Interface 
 ![Text Interface](https://i.imgur.com/7K8z9j0.png)
 
-### Text Interface ^
 
+### File Interface 
 ![File Interface](https://i.imgur.com/i8nTgQM.png)
 
-### File Interface ^
 
+###  Folder Selection (Custom Made)  
 ![Folder View](https://i.imgur.com/grpPnWi.png)
 
-### (Custom) Folder Selection (Icon View) ^
 
 
 [MIT LICENCE]: FEEL FREE TO USE, MODIFY AND DISTRIBUTE THIS APPLICATION FOR ALL PURPOSES. :)
