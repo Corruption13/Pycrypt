@@ -26,14 +26,14 @@ K thanks bye.
 
 1) Clone the RELEASE_SOURCE folder to your device.
 2) Make sure your system has Python 3 Installed *facepalm*
-
+```
     $ python --version
-
+```
 3) Install the depencencies
-
+```
     $ cd ./RELEASE_SOURCE
     $ pip install -r requirements.txt
-
+```
 4) Execute "Pycrypt.py" by doube clicking or through the terminal:
 
 
