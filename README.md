@@ -1,9 +1,9 @@
 # Pycrypt - V 1: Enigma
-Cross Platform Encryption Application
+Cross Platform Encryption Application, that allows you to encrypt text, or entire files, using a two way symmetric key encryption algorithm I made myself.
 
 
 ## ATTENTION STALKER!
-
+```
 I made this project while I was learning Programming, therefore its filled with spaghetti code and god aweful code design.
 The only reason I haven't nuked this repository is for personal nostalgia's sake, and to see how far I have progressed years later.
 Please do not over analyse or attempt to understand my code, 
@@ -12,7 +12,7 @@ Please do not over analyse or attempt to understand my code,
 Also I know the aesthetics are vomitous, I was just trying to be a hipster. Material Design is overrated and unoriginal. 
 
 K thanks bye.
-
+```
 
 
 
