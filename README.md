@@ -1,18 +1,9 @@
-# Pycrypt - V 1: Enigma
-Cross Platform Encryption Application, that allows you to encrypt text, or entire files, using a two way symmetric key encryption algorithm I made myself.
+# Pycrypt - V1.3
 
+Cross Platform Encryption Application, that allows you to encrypt text or entire files, using a self made two way symmetric key encryption algorithm.
+Frontend implemented using Kivy.
 
-## ATTENTION STALKER!
-```
-I made this project while I was learning Programming, therefore its filled with spaghetti code and god aweful code design.
-The only reason I haven't nuked this repository is for personal nostalgia's sake, and to see how far I have progressed years later.
-Please do not over analyse or attempt to understand my code, 
-
-
-Also I know the aesthetics are vomitous, I was just trying to be a hipster. Material Design is overrated and unoriginal. 
-
-K thanks bye.
-```
+*(Ignore the ugly color palette it was a phase.)*
 
 
 
@@ -24,8 +15,8 @@ K thanks bye.
 
 ## Installation Instructions
 
-1) Clone the RELEASE_SOURCE folder to your device.
-2) Make sure your system has Python 3 Installed *facepalm*
+1) Download the repository to your device.
+2) Make sure your system has Python 3 Installed 
 ```
     $ python --version
 ```
@@ -34,7 +25,7 @@ K thanks bye.
     $ cd ./RELEASE_SOURCE
     $ pip install -r requirements.txt
 ```
-4) Execute "Pycrypt.py" by doube clicking or through the terminal:
+4) Execute "Pycrypt.py" by doube clicking or through the terminal.
 
 
 # Gallery
@@ -52,5 +43,5 @@ K thanks bye.
 
 
 
-[MIT LICENCE]: FEEL FREE TO USE, MODIFY AND DISTRIBUTE THIS APPLICATION FOR ALL PURPOSES. :)
+
 
